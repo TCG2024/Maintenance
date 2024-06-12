@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maint Card</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="CSS/ionicons.min.css">  
+  <!-- Theme style -->
+  <link rel="stylesheet" href="CSS/adminlte.min.css">
+  <link rel="stylesheet" href="CSS/login.css">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto"></ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="#" class="brand-link">
+      <span class="brand-text font-weight-light">Maint Card</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item"></li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid centered-container" id="main-content">
+        <h1>Login</h1>
+        <form onsubmit="loginUser(event)">
+          <div class="form-group">
+            <input type="text" id="usernameField" placeholder="Username" required>
+          </div>
+          <div class="form-group" style="position:relative; max-width: 300px; margin: auto;">
+            <input type="password" id="passwordField" placeholder="Password" required>
+            <span class="toggle-password" onclick="togglePassword()">Show</span>
+          </div>
+          <button type="submit" class="button">Login</button>
+        </form>
+        <a href="#" onclick="showResetPasswordForm()" class="text-link">Forgot Password?</a>
+        <a class="text-link" href="index.html">Return to Index Page</a>
+
+        <div id="resetPasswordForm" style="display: none; margin-top: 20px;">
+          <h2>Reset Password</h2>
+          <form onsubmit="resetPassword(event)">
+            <div class="form-group">
+              <input type="text" id="resetUsernameField" placeholder="Username" required>
+            </div>
+            <button type="submit" class="button">Reset Password</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <strong>&copy; 2024 Maint Card.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 1.0.0
+    </div>
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- Including local Firebase JS files -->
+<script src="js/firebase-app.js"></script>
+<script src="js/firebase-database.js"></script>
+<!-- CryptoJS library for hashing -->
+<script src="js/crypto-js.min.js"></script>
+<!-- Firebase configuration -->
+<script src="js/firebase-config.js"></script>
+<script src="js/login.js"></script>
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE -->
+<script src="js/adminlte.min.js"></script>
+</body>
+</html>

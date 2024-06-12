@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Receive Material</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="CSS/ionicons.min.css">  
+  <!-- Theme style -->
+  <link rel="stylesheet" href="CSS/adminlte.min.css">
+  <link href="CSS/styles.css" rel="stylesheet" />
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Username Display -->
+      <li class="nav-item">
+        <span class="nav-link">
+          <span class="username" id="usernameDisplay"></span>
+        </span>
+      </li>
+      <!-- Logout Button -->
+      <li class="nav-item">
+        <a class="nav-link" href="#" role="button" onclick="logout()">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="#" class="brand-link">
+      <span class="brand-text font-weight-light">Maint Card</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                User
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item"><a href="change_password.html" class="nav-link">Change Password</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Create
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item"><a href="functional_location.html" class="nav-link">Functional Location</a></li>
+              <li class="nav-item"><a href="equipment_type.html" class="nav-link">Equipment Type</a></li>
+              <li class="nav-item"><a href="create_equipment.html" class="nav-link">Equipment</a></li>
+              <li class="nav-item"><a href="create_material.html" class="nav-link">Material</a></li>
+              <li class="nav-item"><a href="create_store.html" class="nav-link">Store</a></li>
+              <li class="nav-item"><a href="create_rack.html" class="nav-link">Racks</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Transactions
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item"><a href="search_material.html" class="nav-link">Search Material</a></li>
+              <li class="nav-item"><a href="receive_material.html" class="nav-link">Receive Material</a></li>
+              <li class="nav-item"><a href="service_entry.html" class="nav-link">Service Entry</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Report
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item"><a href="reports.html" class="nav-link">All Reports</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-database"></i>
+              <p>
+                Database
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item"><a href="database_management.html" class="nav-link">Database Management</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid" id="main-content">
+        <div class="main-content">
+          <div class="image-band"></div>
+          <h1>Receive Material</h1>
+          <div class="form-group">
+            <label for="searchInput">Search Materials</label>
+            <input type="text" id="searchInput" placeholder="Search by any field" oninput="searchMaterials()">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="navigateSearchInput">Navigate Search</label>
+              <input type="text" id="navigateSearchInput">
+              <button onclick="searchNext()">Next</button>
+              <button onclick="searchPrevious()">Previous</button>
+            </div>
+          </div>
+          <div class="form-group hidden" id="updateForm">
+            <label>Material ID: <span id="materialIdLabel"></span></label>
+            <label>Description: <span id="materialDescriptionLabel"></span></label>
+            <label>Quantity: <span id="currentQuantityLabel"></span></label>
+            <label for="newQuantity">New Quantity</label>
+            <input type="number" id="newQuantity" max="99999">
+            <label for="currentSupplier">Current Supplier</label>
+            <input type="text" id="currentSupplier">
+            <label for="poNumber">PO Number</label>
+            <input type="text" id="poNumber">
+            <label for="invNumber">Inv. Number</label>
+            <input type="text" id="invNumber">
+            <button onclick="updateQuantity()">Update Quantity</button>
+          </div>
+          <div class="table-wrapper">
+            <table id="materialTable">
+              <thead>
+                <tr>
+                  <th>Material ID</th>
+                  <th>Description</th>
+                  <th>Specification</th>
+                  <th>Supplier</th>
+                  <th>Quantity</th>
+                  <th>UOM</th>
+                  <th>Probable Place of Use</th>
+                  <th>Remarks</th>
+                  <th>Store No</th>
+                  <th>Rack No</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p><strong>Note:</strong> Click on a row to select a material. Enter the quantity to add, and click "Update Quantity".</p>
+        </div>
+      </div>
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <strong>&copy; 2024 Maint Card.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 1.0.0
+    </div>
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE -->
+<script src="js/adminlte.min.js"></script>
+<script src="js/firebase-app.js"></script>
+<script src="js/firebase-database.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/receivematerial-management.js"></script>
+<script src="js/receive-material.js"></script>
+
+</body>
+</html>
