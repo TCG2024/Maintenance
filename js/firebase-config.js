@@ -2,13 +2,14 @@
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-  apiKey: "AIzaSyBb0H3NT6fc_ohBpNaYIoJfDcnw5WtjlcY",
-  authDomain: "maintenance-835dd.firebaseapp.com",
-  databaseURL: "https://maintenance-835dd-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "maintenance-835dd",
-  storageBucket: "maintenance-835dd.appspot.com",
-  messagingSenderId: "635465800151",
-  appId: "1:635465800151:web:3c8b246c3903e3a604d392"
+ apiKey: "AIzaSyBS4IYvGHLG5owvzPVHGtyXRQiu_-wDdSU",
+  authDomain: "maintenance-2155e.firebaseapp.com",
+  databaseURL: "https://maintenance-2155e-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "maintenance-2155e",
+  storageBucket: "maintenance-2155e.appspot.com",
+  messagingSenderId: "599196319391",
+  appId: "1:599196319391:web:e31e0474dadd9d99fdacaa",
+  measurementId: "G-7QZY96Q25M"
 };
 
 // Initialize Firebase
