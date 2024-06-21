@@ -53,11 +53,11 @@ function uploadData(section) {
             });
         } else if (section.toLowerCase() === 'stores') {
             json.forEach(item => {
-                if (!jsonWithIndex[item.storeName]) {
-                    jsonWithIndex[item.storeName] = { racks: {} };
+                if (!jsonWithIndex[item.storeID]) {
+                    jsonWithIndex[item.storeID] = { racks: {} };
                 }
-                jsonWithIndex[item.storeName].racks[item.rackId] = { rackNo: item.rackNo };
-                jsonWithIndex[item.storeName].storeName = item.storeName; // Adding storeName for completeness
+                jsonWithIndex[item.storeID].racks[item.rackId] = { rackNo: item.rackNo };
+                jsonWithIndex[item.storeID].storeName = item.storeName; // Adding storeName for completeness
             });
         } else if (section.toLowerCase() === 'users') {
             json.forEach(item => {
@@ -122,8 +122,8 @@ function downloadData(section) {
                 const racks = store.racks || {};
                 Object.keys(racks).forEach(rackId => {
                     jsonArray.push({
-                        storeName: storeName,
-                        storeDescription: store.storeName || '',
+                        storeID: storeName,
+                        storeName: store.storeName || '',
                         rackId: rackId,
                         rackNo: racks[rackId].rackNo
                     });
